@@ -1,0 +1,98 @@
+﻿@model IEnumerable<GradeCalculator.Models.GCalculator>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Students Information</h1>
+
+<p>
+    <a asp-action="Create" class="text-decoration-none btn btn-success">Add new student</a>
+</p>
+<form asp-action="Index" method="get">
+    <p>
+        <input type="search" value="@ViewData["CurrentFilter"]" name="SearchRegno" style="width:500px;" placeholder="Search here" />
+        <input type="submit" value="search" class="btn btn-primary" />
+        <a asp-action="Index" class="text-decoration-none btn btn-success"> All Students</a>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student_Regno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student_Dept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject1_Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject2_Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject3_Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Average_Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                Profile pic
+            </th>
+            <th>
+                Operation
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Student_Regno)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Student_Name)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Student_Dept)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Subject1_Mark)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Subject2_Mark)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Subject3_Mark)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Total_Mark)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Average_Mark)
+            </td>
+                <td class="text-light ">
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+                <td>
+                    <img src="@("~/image/"+item.Image_Path)" asp-append-version="true" width="50" height="50">
+                </td>
+            <td>
+                    <button class="btn btn-info btn-sm"><a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none text-white">Edit</a> </button> 
+                    <button class="btn btn-warning btn-sm"><a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none text-white">Details</a></button> 
+                    <button class="btn btn-danger btn-sm"><a asp-action="Delete" asp-route-id="@item.Id" class="text-decoration-none text-white">Delete</a></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

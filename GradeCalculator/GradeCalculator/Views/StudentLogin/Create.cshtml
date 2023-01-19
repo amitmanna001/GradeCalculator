@@ -1,0 +1,30 @@
+﻿@model GradeCalculator.Models.StudentLogin
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout_LoginSignUp.cshtml";
+}
+
+
+
+<h4>StudentLogin</h4>
+
+
+<div class="loginbox">
+    <div class="logo"></div>
+    <h2>Login Here</h2>
+    <div class="alert-danger">
+        @if (ViewData["loginfailed"]!=null)
+        {
+            @ViewData["loginfailed"]
+        }
+    </div>
+    <form asp-action="Create">
+        
+        <p>Registration</p>
+        <input type="number" asp-for="StudentRegno" name="StudentRegno" placeholder="Enter registration no" required>
+
+        <input type="submit" value="Login">
+       
+    </form>
+</div>

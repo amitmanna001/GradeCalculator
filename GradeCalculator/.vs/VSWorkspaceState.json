@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\GradeCalculator",
+    "\\GradeCalculator\\Controllers",
+    "\\GradeCalculator\\Data",
+    "\\GradeCalculator\\Models",
+    "\\GradeCalculator\\Views",
+    "\\GradeCalculator\\Views\\GCalculators",
+    "\\GradeCalculator\\Views\\Registration"
+  ],
+  "SelectedNode": "\\GradeCalculator\\Controllers\\LoginController.cs",
+  "PreviewInSolutionExplorer": false
+}
